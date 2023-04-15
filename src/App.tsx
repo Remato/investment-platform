@@ -1,8 +1,13 @@
 import React, { FC } from 'react';
 import Stacks from './navigation';
+import { Provider } from 'react-native-paper';
 
 const App: FC = () => {
-  return <Stacks />;
+  return (
+    <Provider>
+      <Stacks />
+    </Provider>
+  );
 };
 
 export default App;
