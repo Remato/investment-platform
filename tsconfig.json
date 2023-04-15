@@ -2,9 +2,12 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
-
-    /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "~/components": ["src/components/index"],
+      "~/stores": ["src/stores/index"],
+      "~/Scenes": ["src/Scenes/index"],
+    },                             /* Skip type checking all .d.ts files. */
   }
 }

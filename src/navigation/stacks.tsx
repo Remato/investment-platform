@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-
-import { Dashboard, Login, Portfolio, Signup, Trade } from '../Scenes';
 import { Routes } from '../utils/enums';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Dashboard, Login, Portfolio, Signup, Trade } from '~/Scenes';
 
 const Public = createNativeStackNavigator();
 const Private = createBottomTabNavigator();
