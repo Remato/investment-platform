@@ -7,7 +7,10 @@
       "*": ["src/*"],
       "~/components": ["src/components/index"],
       "~/stores": ["src/stores/index"],
-      "~/Scenes": ["src/Scenes/index"],
-    },                             /* Skip type checking all .d.ts files. */
+      "~/scenes": ["src/scenes/index"],
+    },                           
+    "types": [
+      "@types/styled-components-react-native"
+    ]
   }
 }

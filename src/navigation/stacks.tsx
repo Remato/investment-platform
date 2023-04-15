@@ -5,13 +5,17 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Routes } from '../utils/enums';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Dashboard, Login, Portfolio, Signup, Trade } from '~/Scenes';
+import { Dashboard, Login, Portfolio, Signup, Trade } from '~/scenes';
 
 const Public = createNativeStackNavigator();
 const Private = createBottomTabNavigator();
 
 export const PrivateStack = (): JSX.Element => (
-  <Private.Navigator initialRouteName={Routes.DASHBOARD}>
+  <Private.Navigator
+    initialRouteName={Routes.DASHBOARD}
+    screenOptions={{
+      headerShown: false,
+    }}>
     <Private.Screen
       name={Routes.DASHBOARD}
       component={Dashboard}
@@ -46,7 +50,13 @@ export const PrivateStack = (): JSX.Element => (
 );
 
 export const PublicStack = (): JSX.Element => (
-  <Public.Navigator initialRouteName={Routes.LOGIN}>
+  <Public.Navigator
+    initialRouteName={Routes.LOGIN}
+    screenOptions={{
+      // headerShown: false,
+      headerTitle: '',
+      contentStyle: { backgroundColor: '#f5f5f5' },
+    }}>
     <Public.Screen name={Routes.LOGIN} component={Login} />
     <Public.Screen name={Routes.SIGNUP} component={Signup} />
   </Public.Navigator>

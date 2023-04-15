@@ -10,7 +10,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <MainStack.Navigator
-        initialRouteName={STACKS.PRIVATE}
+        initialRouteName={STACKS.PUBLIC}
         screenOptions={{ headerShown: false }}>
         <MainStack.Screen name="PUBLIC" component={PublicStack} />
         <MainStack.Screen name="PRIVATE" component={PrivateStack} />

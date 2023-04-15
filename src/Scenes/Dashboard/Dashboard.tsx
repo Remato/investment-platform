@@ -1,11 +1,13 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { FC } from 'react';
+import { Wrapper, Button } from './styles';
 
-const Dashboard = () => {
+type Props = {};
+
+const Dashboard: FC<Props> = () => {
   return (
-    <View>
-      <Text>Dashboard</Text>
-    </View>
+    <Wrapper>
+      <Button name="button" iconName="home" onPress={() => {}} />
+    </Wrapper>
   );
 };
 

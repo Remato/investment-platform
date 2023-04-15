@@ -1,11 +1,17 @@
 import { create } from 'zustand';
 
-const useLogin = create<LoginIntent>()(setState => ({
+const useLogin = create<LoginIntent>(set => ({
+  users: [],
   isAuthorized: false,
-  login: () =>
-    setState({
-      isAuthorized: true,
-    }),
+
+  login: () => set(() => ({ isAuthorized: true })),
+
+  logoff: () => set(() => ({ isAuthorized: false })),
+
+  createUser: (newUser: User) =>
+    set(prevState => ({
+      users: [newUser, ...prevState.users],
+    })),
 }));
 
 export default useLogin;
