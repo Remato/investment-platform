@@ -1,8 +1,15 @@
 declare interface LoginIntent {
   users: User[];
   isAuthorized: boolean;
-  login(): void;
+  login(credentials: Credentials): void;
+  logoff(): void;
+  createUser(user: User): void;
 }
+
+declare type Credentials = {
+  email: string;
+  password: string;
+};
 
 declare type User = {
   email: string;

@@ -4,7 +4,10 @@ const useLogin = create<LoginIntent>(set => ({
   users: [],
   isAuthorized: false,
 
-  login: () => set(() => ({ isAuthorized: true })),
+  login: (_credentials: Credentials) => {
+    //access users and verify
+    set(() => ({ isAuthorized: true }));
+  },
 
   logoff: () => set(() => ({ isAuthorized: false })),
 
