@@ -7,8 +7,9 @@ const App: FC = () => {
   const theme = {
     colors: {
       primary: '#770FDF',
-      secondary: '##0FDF8F',
-      background: '#F5F5F5',
+      secondary: '#0FDF8F',
+      tertiary: '#fff',
+      background: '#fff',
     },
     spacing: {
       default: 20,

@@ -1,25 +1,32 @@
 import React from 'react';
 import Login from './Login';
-import { Formik } from 'formik';
 import { FormValues, initialValues, validationSchema } from './form';
+import { useNavigation } from '@react-navigation/native';
+import { useLogin } from '~/stores';
+import { FormContainer } from '~/components';
+import { Routes, STACKS } from '../../utils/enums';
 
 const LoginContainer = () => {
-  // const { createUser } = useLogin();
+  const { login } = useLogin();
+  const { navigate } = useNavigation();
 
-  const onSubmit = ({ email, password }: FormValues) => {
-    //verify
+  const onSubmit = async ({ email, password }: FormValues) => {
+    try {
+      await login({ email, password });
+      navigate(STACKS.PRIVATE, { screen: Routes.DASHBOARD });
+    } catch (error) {
+      //show Error, modal maybe.
+    }
   };
 
   return (
-    <Formik
-      validateOnBlur={false}
-      validateOnChange={false}
+    <FormContainer
       enableReinitialize
       onSubmit={onSubmit}
       initialValues={initialValues}
       validationSchema={validationSchema}>
       <Login />
-    </Formik>
+    </FormContainer>
   );
 };
 

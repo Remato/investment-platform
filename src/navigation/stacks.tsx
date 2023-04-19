@@ -4,8 +4,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Routes } from '../utils/enums';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import FoundationIcon from 'react-native-vector-icons/Foundation';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 import { Dashboard, Login, Portfolio, Signup, Trade } from '~/scenes';
+import { MainHeader, TradeHeader } from '~/components';
 
 const Public = createNativeStackNavigator();
 const Private = createBottomTabNavigator();
@@ -14,15 +17,29 @@ export const PrivateStack = (): JSX.Element => (
   <Private.Navigator
     initialRouteName={Routes.DASHBOARD}
     screenOptions={{
-      headerShown: false,
+      // headerTitle: '',
+      // header: () => <MainHeader />,
+      headerStyle: {
+        backgroundColor: '#fff',
+      },
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        color: '#000',
+      },
     }}>
     <Private.Screen
       name={Routes.DASHBOARD}
       component={Dashboard}
       options={{
+        header: () => <MainHeader />,
         tabBarLabel: 'Dashboard',
+        tabBarInactiveTintColor: '#000',
+        tabBarActiveTintColor: '#770FDF',
+        tabBarLabelStyle: {
+          fontWeight: 'bold',
+        },
         tabBarIcon: ({ color, size }) => (
-          <Icon name="home" color={color} size={size} />
+          <FoundationIcon name="home" color={color} size={size} />
         ),
       }}
     />
@@ -30,9 +47,15 @@ export const PrivateStack = (): JSX.Element => (
       name={Routes.TRADE}
       component={Trade}
       options={{
+        header: () => <TradeHeader />,
         tabBarLabel: 'Trade',
+        tabBarInactiveTintColor: '#000',
+        tabBarActiveTintColor: '#770FDF',
+        tabBarLabelStyle: {
+          fontWeight: 'bold',
+        },
         tabBarIcon: ({ color, size }) => (
-          <Icon name="home" color={color} size={size} />
+          <AwesomeIcon name="exchange" color={color} size={size} />
         ),
       }}
     />
@@ -40,9 +63,15 @@ export const PrivateStack = (): JSX.Element => (
       name={Routes.PORTFOLIO}
       component={Portfolio}
       options={{
+        header: () => <TradeHeader />,
         tabBarLabel: 'Portfolio',
+        tabBarInactiveTintColor: '#000',
+        tabBarActiveTintColor: '#770FDF',
+        tabBarLabelStyle: {
+          fontWeight: 'bold',
+        },
         tabBarIcon: ({ color, size }) => (
-          <Icon name="home" color={color} size={size} />
+          <FeatherIcon name="pie-chart" color={color} size={size} />
         ),
       }}
     />
@@ -55,7 +84,7 @@ export const PublicStack = (): JSX.Element => (
     screenOptions={{
       // headerShown: false,
       headerTitle: '',
-      contentStyle: { backgroundColor: '#f5f5f5' },
+      contentStyle: { backgroundColor: '#fff' },
     }}>
     <Public.Screen name={Routes.LOGIN} component={Login} />
     <Public.Screen name={Routes.SIGNUP} component={Signup} />

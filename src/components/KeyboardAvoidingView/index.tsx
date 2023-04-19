@@ -15,7 +15,7 @@ const defaultBehavior: Behavior = isIOS() ? 'padding' : undefined;
 const defaultStyle = { flex: 1 };
 
 type Props = {
-  children: any;
+  children: JSX.Element;
   style?: StyleProp<ViewStyle>;
   behavior?: Behavior;
   enabled?: boolean;

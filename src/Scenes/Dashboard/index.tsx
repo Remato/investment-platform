@@ -1,11 +1,23 @@
 import React from 'react';
 import Dashboard from './Dashboard';
-import { useLogin } from '~/stores';
+import { useNavigation } from '@react-navigation/native';
+import { Routes } from '../../utils/enums';
+import { useFund } from '~/stores';
 
 const DashboardContainer = () => {
-  // const { } = useLogin();
+  const { navigate } = useNavigation();
+  const { fetchFund } = useFund();
 
-  return <Dashboard />;
+  const viewFundDetails = async (fundId: string) => {
+    try {
+      await fetchFund(fundId);
+      navigate(Routes.TRADE);
+    } catch (message) {
+      //error management, maybe show modal
+    }
+  };
+
+  return <Dashboard onPressFund={viewFundDetails} />;
 };
 
 export default DashboardContainer;

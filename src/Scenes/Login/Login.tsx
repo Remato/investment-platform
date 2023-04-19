@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Wrapper, Button, Title, Input } from './styles';
 import { FormikProps, useFormikContext } from 'formik';
 import { FormValues } from './form';
 import { isEmpty } from 'lodash';
 
-const Login = () => {
+const Login: FC = () => {
   const {
     values,
     errors,
@@ -16,8 +16,6 @@ const Login = () => {
     handleBlur,
     handleChange,
   }: FormikProps<FormValues> = useFormikContext();
-
-  console.log(errors.email, errors.password);
 
   return (
     <Wrapper>

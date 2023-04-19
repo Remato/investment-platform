@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { Wrapper } from './styles';
 
 type Props = {
-  children: any;
+  children: JSX.Element;
   validationSchema: any;
   initialValues: Record<string, unknown>;
   onSubmit(values: any, actions: any): any;
