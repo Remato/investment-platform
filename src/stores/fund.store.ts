@@ -3,10 +3,13 @@ import { fetchFund } from '../api';
 
 const useFund = create<FundStore>(set => ({
   currentFund: 'TSLA',
-  fundInfos: {} as FundInfo,
-  fetchFund: async (fund: 'TSLA' | 'AAPL' | 'USEG') => {
-    const infos = await fetchFund(fund);
-    set(() => ({ fundInfos: infos, currentFund: fund }));
+  funds: [] as FundInfo[],
+  fetchFunds: async () => {
+    const funds = await fetchFund();
+    set(() => ({ funds: funds }));
+  },
+  setFund: (fund: 'TSLA' | 'AAPL' | 'USEG') => {
+    set(() => ({ currentFund: fund }));
   },
 }));
 

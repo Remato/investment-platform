@@ -1,10 +1,12 @@
 declare interface FundStore {
   currentFund: 'TSLA' | 'AAPL' | 'USEG';
-  fundInfos: FundInfo;
-  fetchFund(fund: string): void;
+  funds: FundInfo[];
+  setFund(fund: string): void;
+  fetchFunds(): void;
 }
 
 declare type FundInfo = {
+  id: string;
   goUp: boolean;
   creditNumber: number;
   totalValueDolar: string;
@@ -15,4 +17,6 @@ declare type FundInfo = {
   AUM: string;
   issueDate: string;
   vintageRange: string;
+  currentPrice: string;
+  variationPercentage: string;
 };

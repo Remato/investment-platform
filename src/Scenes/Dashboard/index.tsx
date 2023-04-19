@@ -6,18 +6,18 @@ import { useFund } from '~/stores';
 
 const DashboardContainer = () => {
   const { navigate } = useNavigation();
-  const { fetchFund } = useFund();
+  const { funds, setFund } = useFund();
 
-  const viewFundDetails = async (fundId: string) => {
+  const viewFundDetails = (fundId: string) => {
     try {
-      await fetchFund(fundId);
+      setFund(fundId);
       navigate(Routes.TRADE);
     } catch (message) {
       //error management, maybe show modal
     }
   };
 
-  return <Dashboard onPressFund={viewFundDetails} />;
+  return <Dashboard onPressFund={viewFundDetails} funds={funds} />;
 };
 
 export default DashboardContainer;

@@ -19,11 +19,11 @@ import { chartData } from '../../mocks/charts';
 import { FUND } from '../../utils/enums';
 
 type Props = {
-  fund: string;
-  fundInfos: FundInfo;
+  currentFund: string;
+  fundInfo: FundInfo;
 };
 
-const Trade: FC<Props> = ({ fund, fundInfos }) => {
+const Trade: FC<Props> = ({ currentFund, fundInfo }) => {
   const { dataSetAAPL, dataSetTSLA, dataSetUSEG, labels } = chartData;
   const {
     changeValuePorcentage,
@@ -36,10 +36,10 @@ const Trade: FC<Props> = ({ fund, fundInfos }) => {
     creditNumber,
     goUp,
     totalValueDolar,
-  } = fundInfos;
+  } = fundInfo;
 
   const selectFund = () => {
-    switch (fund) {
+    switch (currentFund) {
       case FUND.TESLA:
         return dataSetTSLA;
       case FUND.APPLE:

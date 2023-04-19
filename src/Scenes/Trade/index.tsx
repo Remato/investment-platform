@@ -3,8 +3,13 @@ import Trade from './Trade';
 import { useFund } from '~/stores';
 
 const TradeContainer = () => {
-  const { currentFund, fundInfos } = useFund();
-  return <Trade fund={currentFund} fundInfos={fundInfos} />;
+  const { currentFund, funds } = useFund();
+
+  const getFundInfo = () => {
+    return funds.find(({ id }) => currentFund === id);
+  };
+
+  return <Trade currentFund={currentFund} fundInfo={getFundInfo()!} />;
 };
 
 export default TradeContainer;

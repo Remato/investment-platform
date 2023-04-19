@@ -43,6 +43,7 @@ const dataSetUSEG = [
 ];
 
 const teslaInfo = {
+  id: 'TSLA',
   goUp: false,
   creditNumber: 6,
   changeValuePorcentage: '1.46% ($2.73)',
@@ -53,9 +54,12 @@ const teslaInfo = {
   AUM: '$82.33b',
   issueDate: '31/12/2022',
   vintageRange: '2010 - 2023',
+  currentPrice: '$184.21',
+  variationPercentage: '1.46%',
 };
 
 const appleInfo = {
+  id: 'AAPL',
   goUp: true,
   creditNumber: 12,
   changeValuePorcentage: '0.75% ($1.24)',
@@ -66,12 +70,15 @@ const appleInfo = {
   AUM: '$346.75b',
   issueDate: '31/12/2022',
   vintageRange: '1980 - 2023',
+  currentPrice: '$166.47',
+  variationPercentage: '0.75%',
 };
 
 const usegInfo = {
+  id: 'USEG',
   goUp: true,
   creditNumber: 410,
-  changeValuePorcentage: '0.76% ($0.10)',
+  changeValuePorcentage: '0.26% ($0.10)',
   totalValueDolar: '$533.01',
   openPrice: '$1.27',
   closePrice: '$1.28',
@@ -79,6 +86,8 @@ const usegInfo = {
   AUM: '$32.53m',
   issueDate: '31/12/2022',
   vintageRange: '2010 - 2023',
+  currentPrice: '$1.30',
+  variationPercentage: '0.26%',
 };
 
 export const chartData = {
