@@ -83,12 +83,17 @@ export const PublicStack = (): JSX.Element => (
     initialRouteName={Routes.LOGIN}
     screenOptions={{
       // headerShown: false,
-      header: () => <TradeHeader />,
       headerTitle: '',
       contentStyle: { backgroundColor: '#fff' },
     }}>
     <Public.Screen name={Routes.LOGIN} component={Login} />
-    <Public.Screen name={Routes.SIGNUP} component={Signup} />
+    <Public.Screen
+      options={{
+        header: () => <TradeHeader noTitle />,
+      }}
+      name={Routes.SIGNUP}
+      component={Signup}
+    />
     <Public.Screen name={Routes.SUCCESS} component={Success} />
   </Public.Navigator>
 );

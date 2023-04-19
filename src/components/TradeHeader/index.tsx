@@ -13,10 +13,10 @@ import { useNavigation } from '@react-navigation/native';
 import { FUND } from '../../utils/enums';
 
 type Props = {
-  noTitle: boolean;
+  noTitle?: boolean;
 };
 
-const TradeHeader: FC<Props> = ({ noTitle = true }) => {
+const TradeHeader: FC<Props> = ({ noTitle = false }) => {
   const { goBack } = useNavigation();
   const { currentFund } = useFund();
 
