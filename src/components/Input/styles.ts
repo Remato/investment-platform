@@ -11,9 +11,14 @@ export const InputLabel = styled.Text`
 
 export const InputBase = styled(TextInput).attrs(props => ({
   mode: 'outlined',
+  outlineStyle: {
+    // borderColor: '#f4f4f4',
+  },
   theme: {
     colors: {
       primary: props.theme.colors.primary,
     },
   },
-}))``;
+}))`
+  background-color: #f4f4f4;
+`;

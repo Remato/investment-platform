@@ -28,7 +28,7 @@ const Dashboard: FC<Props> = ({ funds, onPressFund }) => {
       <Text contrast bold text="Funds" variant="xlg" />
       <InnerWrapper horizontal showsHorizontalScrollIndicator={false}>
         {funds.map(({ id, currentPrice, variationPercentage }) => (
-          <ChartWrapper onPress={() => onPressFund(id)}>
+          <ChartWrapper key={id} onPress={() => onPressFund(id)}>
             <IconWrapper>
               {id === FUND.TESLA && <FontIcon name="tesla" size={20} />}
               {id === FUND.APPLE && <AntIcon name="apple-o" size={20} />}

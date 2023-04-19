@@ -4,16 +4,17 @@ const useLogin = create<LoginIntent>((set, get) => ({
   users: [],
   isAuthorized: false,
 
-  login: ({ email, password }: Credentials) => {
-    //access users and verify
-    //faz map e acha o index do user para comparar a senha depois
-    // const userExists = get().users.map(({ email: currentMail }, index) => {
-    //   currentMail === email;
-    // });
-    // if(userExists){
-
-    // }
-    set(() => ({ isAuthorized: true }));
+  login: ({ email, password }: Credentials): boolean => {
+    const userExists = get().users.map(
+      ({ email: currentMail, password: currentPass }) => {
+        currentMail === email && password === currentPass;
+      },
+    );
+    if (userExists) {
+      set(() => ({ isAuthorized: true }));
+      return true;
+    }
+    return false;
   },
 
   logoff: () => set(() => ({ isAuthorized: false })),

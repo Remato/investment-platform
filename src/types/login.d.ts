@@ -1,7 +1,7 @@
 declare interface LoginIntent {
   users: User[];
   isAuthorized: boolean;
-  login(credentials: Credentials): void;
+  login(credentials: Credentials): boolean;
   logoff(): void;
   createUser(user: User): void;
 }

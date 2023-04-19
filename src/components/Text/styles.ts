@@ -7,6 +7,7 @@ type Props = {
   isHigh: boolean;
   variant: string;
   contrast: boolean;
+  underline: boolean;
 };
 
 const getFontSize = ({ variant }: Props) => {
@@ -63,6 +64,8 @@ export const TextBase = styled.Text<Props>`
   line-height: ${props => getLineHeight(props)}px;
   color: ${props => (props.contrast ? '#000' : getColor(props))};
   font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
+  text-decoration: ${({ underline }) => (underline ? 'underline' : 'none')};
+  text-decoration-style: solid;
 `;
 
 export const InfoWrapper = styled.View`

@@ -25,5 +25,12 @@ export const Title = styled.Text`
   font-weight: bold;
   font-size: 18px;
   line-height: 23px;
-  letter-spacing: -0.02;
 `;
+
+export const Signup = styled.View`
+  flex-direction: row;
+  margin-top: 12px;
+  justify-content: center;
+`;
+
+export const SignupWrapper = styled.TouchableOpacity``;

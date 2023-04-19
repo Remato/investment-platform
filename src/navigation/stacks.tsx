@@ -7,7 +7,7 @@ import { Routes } from '../utils/enums';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FoundationIcon from 'react-native-vector-icons/Foundation';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import { Dashboard, Login, Portfolio, Signup, Trade } from '~/scenes';
+import { Dashboard, Login, Portfolio, Signup, Trade, Success } from '~/scenes';
 import { MainHeader, TradeHeader } from '~/components';
 
 const Public = createNativeStackNavigator();
@@ -83,10 +83,12 @@ export const PublicStack = (): JSX.Element => (
     initialRouteName={Routes.LOGIN}
     screenOptions={{
       // headerShown: false,
+      header: () => <TradeHeader />,
       headerTitle: '',
       contentStyle: { backgroundColor: '#fff' },
     }}>
     <Public.Screen name={Routes.LOGIN} component={Login} />
     <Public.Screen name={Routes.SIGNUP} component={Signup} />
+    <Public.Screen name={Routes.SUCCESS} component={Success} />
   </Public.Navigator>
 );

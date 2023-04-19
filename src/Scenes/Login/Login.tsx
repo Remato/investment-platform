@@ -1,10 +1,15 @@
 import React, { FC } from 'react';
-import { Wrapper, Button, Title, Input } from './styles';
+import { Wrapper, Button, Title, Input, Signup, SignupWrapper } from './styles';
 import { FormikProps, useFormikContext } from 'formik';
 import { FormValues } from './form';
+import { Text } from '~/components';
 import { isEmpty } from 'lodash';
 
-const Login: FC = () => {
+type Props = {
+  onPressSignup(): void;
+};
+
+const Login: FC<Props> = ({ onPressSignup }) => {
   const {
     values,
     errors,
@@ -45,7 +50,16 @@ const Login: FC = () => {
         onChangeText={handleChange('password')}
         onEndEditing={() => setFieldTouched('password', false)}
       />
+
       <Button name="Login" isFullWidth onPress={submitForm} />
+
+      <Signup>
+        <Text text="Don't have an account?" variant="sm" />
+        <SignupWrapper onPress={onPressSignup}>
+          <Text contrast text=" Sign up " variant="sm" underline />
+        </SignupWrapper>
+        <Text text="here" variant="sm" />
+      </Signup>
     </Wrapper>
   );
 };

@@ -13,13 +13,17 @@ const LoginContainer = () => {
 
   const onSubmit = async ({ email, password }: FormValues) => {
     try {
-      await login({ email, password });
-      await fetchFunds();
-      navigate(STACKS.PRIVATE, { screen: Routes.DASHBOARD });
+      const isAuthorized = login({ email, password });
+      if (isAuthorized) {
+        await fetchFunds();
+        navigate(STACKS.PRIVATE, { screen: Routes.DASHBOARD });
+      }
     } catch (error) {
       //show Error, modal maybe.
     }
   };
+
+  const goToSignup = () => navigate(Routes.SIGNUP);
 
   return (
     <FormContainer
@@ -27,7 +31,7 @@ const LoginContainer = () => {
       onSubmit={onSubmit}
       initialValues={initialValues}
       validationSchema={validationSchema}>
-      <Login />
+      <Login onPressSignup={goToSignup} />
     </FormContainer>
   );
 };

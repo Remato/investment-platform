@@ -10,6 +10,7 @@ type Props = {
   isHigh?: boolean;
   isLow?: boolean;
   hasInfoIcon?: boolean;
+  underline?: boolean;
 };
 
 const Text: FC<Props> = ({
@@ -20,6 +21,7 @@ const Text: FC<Props> = ({
   isHigh = false,
   isLow = false,
   hasInfoIcon = false,
+  underline = false,
 }) => {
   return (
     <Wrapper>
@@ -30,6 +32,7 @@ const Text: FC<Props> = ({
         isHigh={isHigh}
         variant={variant}
         contrast={contrast}
+        underline={underline}
         bold={bold}>
         {text}
       </TextBase>
