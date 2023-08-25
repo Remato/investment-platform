@@ -1,6 +1,6 @@
-# Crowdform
+# Investment Platform
 
-## This is a crowdform test application!
+## This was an application created to study and manipulate graphics within React Native
 
 ## App overview 📱
 
